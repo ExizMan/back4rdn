@@ -5,3 +5,11 @@ class TopicSerializer(serializers.ModelSerializer):
     class Meta:
         model = Topic
         fields = ['text','date_added']
+
+"""
+class TopicSerializer(serializers.Serializer):
+    
+    class Meta:
+        model = Topic
+        fields = ['text','date_added']
+"""
