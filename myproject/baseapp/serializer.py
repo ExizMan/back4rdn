@@ -11,9 +11,7 @@ class TopicSerializer(serializers.Serializer):
     def create(valid_data): 
     def update(v_data, instance):
     
-    class Meta:
-        model = Topic
-        fields = ['text','date_added']
+
 
         
 """
