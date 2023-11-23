@@ -8,6 +8,8 @@ class TopicSerializer(serializers.ModelSerializer):
         fields = ['text', 'date_added']
 
 
+
+
 """
 class TopicSerializer(serializers.Serializer):
     def create(valid_data): 

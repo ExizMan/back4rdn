@@ -7,4 +7,8 @@ class Topic(models.Model):
     def __str__(self):
         """Returns string value"""
         return self.text
+
+
+
+
 # Create your models here.
