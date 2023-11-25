@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager, PermissionsMixin, UserManager
+from rest_framework_simplejwt.tokens import RefreshToken
 
 
 class UserManager(BaseUserManager):
@@ -16,12 +17,13 @@ class UserManager(BaseUserManager):
         user = self.model(username=username, email=self.normalize_email(email))
         user.set_password(password)
         user.save()
+        return user
 
 
 
 class User(AbstractUser):
     username = models.CharField(max_length=20, unique=True)
-    password = models.CharField(max_length=20)
+    password = models.CharField()
     email = models.EmailField(max_length=255, unique=True)
 
 
@@ -32,6 +34,12 @@ class User(AbstractUser):
 
 
     objects = UserManager()
+    def tokens(self):
+        refresh = RefreshToken.for_user(self)
+        return {
+            'refresh':str(refresh),
+            'access':str(refresh.access_token)
+        }
 
 class OneTimePassword(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
