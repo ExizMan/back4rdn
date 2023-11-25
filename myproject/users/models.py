@@ -23,8 +23,7 @@ class User(AbstractUser):
     username = models.CharField(max_length=20, unique=True)
     password = models.CharField(max_length=20)
     email = models.EmailField(max_length=255, unique=True)
-    date_create = models.DateField(auto_now_add=True)
-    date_update = models.DateField(auto_now=True)
+
 
     USERNAME_FIELD = 'username'
     EMAIL_FIELD = 'email'
@@ -33,5 +32,9 @@ class User(AbstractUser):
 
 
     objects = UserManager()
+
+class OneTimePassword(models.Model):
+    user=models.OneToOneField(User, on_delete=models.CASCADE)
+    otp=models.CharField(max_length=6)
 
 # Create your models here.
