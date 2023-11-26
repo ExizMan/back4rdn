@@ -10,7 +10,6 @@ class TopicView(APIView):
         output=[
             {
                 "text":output.text,
-
             } for output in Topic.objects.all()
         ]
         return Response(output)
@@ -18,5 +17,5 @@ class TopicView(APIView):
         serializer = TopicSerializer(data=request.data)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
-            return Response(serializer.data)
+        return Response(serializer.data)
 # Create your views here.

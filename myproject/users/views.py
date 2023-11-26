@@ -3,7 +3,7 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from rest_framework.response import Response
-from .serializer import UserRegisterSerializer, LoginSerializer
+from .serializer import UserRegisterSerializer, LoginSerializer, UserHeaderSerializer
 
 
 class RegisterView(GenericAPIView):
