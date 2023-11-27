@@ -43,6 +43,7 @@ class User(AbstractUser):
     email = models.EmailField(max_length=255, unique=True)
 
 
+
     USERNAME_FIELD = 'username'
     EMAIL_FIELD = 'email'
 
