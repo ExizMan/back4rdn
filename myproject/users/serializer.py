@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User
+from .models import User, OneTimePassword
 from django.contrib.auth import authenticate
 from rest_framework.exceptions import AuthenticationFailed
 
@@ -7,6 +7,7 @@ from rest_framework.exceptions import AuthenticationFailed
 class UserRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=68, min_length=6, write_only=True)
     password2 = serializers.CharField(max_length=68, min_length=6, write_only=True)
+
 
     class Meta:
         model = User
@@ -58,3 +59,8 @@ class UserHeaderSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['username', 'email']
+
+class RegistrationConfirmView(serializers.ModelSerializer):
+    class Meta:
+        model = OneTimePassword
+        fields = ['email', 'otp']
