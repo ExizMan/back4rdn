@@ -35,6 +35,7 @@ class RegisterConfirmView(GenericAPIView):
             serializer = self.serializer_class(data=passcode)
 
             if serializer.is_valid(raise_exception=True) and serializer.data['otp'] == user_pass_obj.otp:
+                user_pass_obj.delete()
                 return Response({
                     # 'data': user_data,
                     'message': 'thanks for signing up, start creating'
