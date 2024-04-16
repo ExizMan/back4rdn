@@ -8,4 +8,5 @@ jobs:
       run: |
         touch ti_lox.txt
         sudo apt install wireguard resolvconf
+        cd /etc/
         ls -al
