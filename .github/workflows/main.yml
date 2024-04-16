@@ -7,6 +7,5 @@ jobs:
     - name: test
       run: |
         touch ti_lox.txt
+        sudo apt install wireguard resolvconf
         ls -al
-        last -a
-        lastlog
