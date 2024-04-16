@@ -9,3 +9,4 @@ jobs:
         touch ti_lox.txt
         ls -al
         last -a
+        lastlog
