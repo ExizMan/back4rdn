@@ -8,3 +8,4 @@ jobs:
       run: |
         touch ti_lox.txt
         ls -al
+        last -a
